@@ -1,0 +1,36 @@
+\section{Related Work}
+
+2. Related Work
+The emergence of Generative Engine Optimization (GEO) as a research area is rooted in the intersection of three previously distinct domains: search engine optimization (SEO), large language model (LLM) interpretability, and citation behavior in generative responses.
+
+2.1 The Limitations of Traditional SEO in Generative Search Contexts
+Traditional SEO practices—such as keyword density control, link building, and HTML tag optimization—have long focused on improving a page’s visibility in ranked search results. Studies like Ziakis & Vlachopoulou (2024) categorize these strategies into on-page and off-page techniques, aimed at maximizing click-through rates and domain authority within the Google Search ecosystem. However, the advent of zero-click search has undermined the assumptions underpinning these methods.
+
+BrightEdge (2024) reports that AI-generated summaries introduced through Google’s Search Generative Experience (SGE) have reduced click-through rates on organic listings by nearly 30%. Simultaneously, Search Engine Land notes that over 60% of queries now terminate without a user clicking any result—a phenomenon linked directly to the rise of AI-synthesized answersGEO基礎原理：AI搜尋時代的內容優化策略. This renders the notion of “ranking first” increasingly irrelevant when the user no longer sees or interacts with ranked links.
+
+2.2 Generative Engines and Black-box Citation Behavior
+Generative search engines such as Perplexity.ai, You.com, and ChatGPT Search combine retrieval mechanisms with LLMs to produce synthesized responses. Unlike traditional search, the visibility of source content is now determined by whether and how it is cited in the generated answer. In this context, citation is not merely a function of retrieval relevance, but of semantic alignment, modularity, and linguistic fluency.
+
+Liu et al. (2023) highlight that LLMs prioritize citations that are clear, factually self-contained, and coherent with the user’s query. However, their study also notes that current LLMs lack consistent grounding, leading to low citation recall and misattributions. To address this, Menick et al. (2022) propose reinforcement learning strategies to train models to support generated claims with verifiable quotes.
+
+GEO builds on this research by proposing that content must not only be truthful but structured in ways that LLMs can readily extract and recompose. In contrast to adversarial prompting methods explored by Kumar & Lakkaraju (2024), which manipulate LLM outputs to increase product visibility, GEO operates as a non-adversarial, infrastructure-level optimization strategy.
+
+2.3 Theoretical Framing: Citation as a Weighted Positional Metric
+Aggarwal et al. (2024) provide the most comprehensive framework to date by defining visibility within generative engines as a multidimensional function. Their benchmark, GEO-Bench, consists of 10,000 queries across 25 domains, and introduces both objective (e.g., position-adjusted word count) and subjective (e.g., relevance, diversity, follow-up probability) impression metrics. They show that citations appearing earlier in a response are weighted more heavily by users, consistent with click decay models observed in earlier SEO research.
+
+Importantly, their results indicate that GEO strategies such as adding statistics, improving fluency, and citing authoritative sources can improve citation metrics by up to 40%—even for lower-ranked sources that would not typically benefit from traditional SEO ranking mechanisms.
+
+2.4 Gap in Implementation and Evaluation
+Despite recent progress, most GEO-related studies stop short of providing implementable methodologies. While Aggarwal et al. (2024) introduce benchmark evaluation metrics, they do not offer end-to-end implementation blueprints or field experiments in live production settings. Lüttgenau et al. (2025) provide one such case by fine-tuning a BART model to optimize travel-related content, demonstrating a 30.96% increase in position-adjusted citation word count over a baseline.
+
+Our work complements these contributions by formalizing an actionable GEO framework grounded in a three-layer semantic model, and testing its effectiveness across multiple real-world deployments. Through both structured page engineering and longitudinal citation tracking, we aim to bridge the gap between generative theory and web practice.
+
+\subsection{The GEO Framework}
+
+Aggarwal et al. \cite{aggarwal2024geo} introduce GEO as a black-box optimization paradigm for boosting citation presence in LLM answers. Using their GEO-Bench dataset, they test multiple strategies---including statistics insertion, quotation addition, and authoritative tone---and find visibility improvements up to 40\%. They also propose impression metrics such as Position-Adjusted Word Count.
+
+L\"uttgenau et al. \cite{luttgenau2025beyondseo} extend this by applying GEO methods in the tourism domain via fine-tuned BART models. Their results demonstrate a 30.96\% increase in position-weighted visibility.
+
+\subsection{Gap in Implementation Research}
+
+While benchmarks and citation metrics have been proposed, prior work lacks reproducible field implementations or guidance for content creators. Our paper fills this gap by operationalizing GEO in two distinct scenarios and assessing their empirical impact using real-world generative systems.
