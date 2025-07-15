@@ -1,0 +1,37 @@
+\section{Theoretical Foundation: The Three-Layer Semantic Visibility Model}
+
+To explain how content achieves visibility in generative engine responses, we propose a structured framework consisting of three interdependent layers: Semantic Anchoring, Context Triggering, and Pragmatic Recomposition. This model is derived from citation behavior analyses in LLMs \cite{aggarwal2024geo, luttgenau2025beyondseo} and practical experiments described in Sections 6 and 7.
+
+\subsection{Layer 1: Semantic Anchoring}
+
+Semantic anchoring enables a page to be recognized as topically relevant during pre-retrieval and classification stages. It depends on:
+\begin{itemize}
+  \item Clear, descriptive titles
+  \item Summary paragraphs (<300 characters) with key claims or facts
+  \item Consistent hierarchical structure (H1--H3)
+\end{itemize}
+Pages that lack such signals may not be classified correctly and thus are omitted during grounding \cite{liu2023verifiability}.
+
+\subsection{Layer 2: Context Triggering}
+
+This layer ensures that content surfaces across varied semantic queries. It emphasizes:
+\begin{itemize}
+  \item Synonyms and paraphrases of key phrases
+  \item Multilevel complexity in phrasing (simple to technical)
+  \item Use of terms recognized in domain-specific corpora
+\end{itemize}
+Aggarwal et al. \cite{aggarwal2024geo} note that lexical redundancy and semantic coverage significantly increase retrieval success across diverse query types.
+
+\subsection{Layer 3: Pragmatic Recomposition}
+
+Recomposition refers to a page’s capacity to be cited via modular extractions. Key strategies include:
+\begin{itemize}
+  \item FAQ blocks marked with Schema.org’s \texttt{FAQPage}
+  \item Standalone paragraphs (3--5 sentences each)
+  \item Lists and tabular structures
+\end{itemize}
+L\"uttgenau et al. \cite{luttgenau2025beyondseo} report that such formatting enables BART models to extract and paraphrase content with higher fluency and fidelity.
+
+\subsection{Layer Synergy and Failure Modes}
+
+A page strong in Layer 1 but weak in Layer 3 may be retrieved but not cited. Conversely, good modular design (Layer 3) without topic anchoring may result in irrelevant citation or no citation. Thus, high-performance GEO requires all three layers to be present and aligned.
