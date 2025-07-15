@@ -1,0 +1,45 @@
+\section{Case Study: GEO Implementation on SOYA Course Review Content}
+
+To validate the efficacy of GEO under production-like conditions, we applied a three-phase optimization to the page titled ``SOYA \textbf{\CJKfamily{bsmi}課程評價}” hosted on \texttt{massenlighten.com}. Implementation details are documented in full at \cite{massenlighten2024blog}.
+
+\subsection{Pre-Optimization Baseline}
+Before intervention, ChatGPT and Perplexity were queried in incognito visitor mode with the term ``SOYA 課程評價.”
+\begin{itemize}
+  \item \textbf{ChatGPT:} 0 out of 8--10 segments cited the page
+  \item \textbf{Perplexity:} 0 out of 6 content blocks referenced the source
+\end{itemize}
+Despite first-page ranking in traditional search, generative engines failed to cite the site---suggesting structural citation failure.
+
+\subsection{Optimization Process}
+Changes were deployed across three weeks:
+\begin{itemize}
+  \item \textbf{Week 1:} Semantic anchoring (title rewriting, summary paragraph, intro block)
+  \item \textbf{Week 2:} Context expansion (paraphrases, synonyms, term layering)
+  \item \textbf{Week 3:} Recomposition (FAQ, modularization, citation-ready definitions)
+\end{itemize}
+Each change aligned with one GEO semantic layer.
+
+\subsection{Post-GEO Evaluation}
+Querying under the same visitor settings yielded:
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{System} & \textbf{Segments Returned} & \textbf{Segments Citing SOYA Page} \\
+\hline
+ChatGPT Run 1 & 9 & 7 \\
+ChatGPT Run 2 & 8 & 7 \\
+Perplexity Run 1 & 6 & 5 \\
+Perplexity Run 2 & 6 & 5 \\
+\hline
+\end{tabular}
+\end{center}
+
+Average citation rate across 4 sessions: \textbf{77.1\%}. Segments cited included mid-body paragraphs and FAQ entries.
+
+\subsection{Implications}
+\begin{itemize}
+  \item Modular restructuring substantially improved visibility
+  \item Schema and semantic clarity allowed correct topical indexing
+  \item Citation occurred despite no backlink gain or metadata tuning
+\end{itemize}
+These outcomes align with GEO-Bench results \cite{aggarwal2024geo}, supporting the claim that semantic structure---not SEO rank---determines generative citation likelihood.
