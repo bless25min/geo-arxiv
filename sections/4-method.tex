@@ -1,0 +1,68 @@
+\section{Methodology: Technical Implementation of GEO}
+
+4. Methodology: Technical Implementation of GEO
+To operationalize the three-layer semantic visibility model, we constructed a multi-stage GEO implementation pipeline using publicly available tools and lightweight deployment infrastructure. This section details the real-world execution process, emphasizing reproducibility, modularity, and platform neutrality.
+\subsection{Content Generation and Structuring}
+
+4.1 Content Generation and Semantic Structuring
+To produce content suitable for LLM citation, we began by recording biographical narratives and domain knowledge using ChatGPT’s voice transcription feature. These audio inputs were automatically transcribed and processed into structured paragraphs, preserving semantic completeness at the segment level. Supplementary knowledge—such as project notes and technical documentation—was organized using ChatGPT’s "linker" and "research" tools, which enabled the clustering of concepts under shared topical anchors.
+
+Each content block was edited for:
+
+Modularity: 3–5 sentence units with standalone coherence
+
+Title scope clarity: Inclusion of descriptive section headers (H2/H3)
+
+Extractability: Use of bullet lists, definition blocks, and quote formatting
+
+This process ensured coverage of the Semantic Anchoring and Pragmatic Recomposition layers of the visibility model.
+
+\subsection{Deployment via Semantic Mesh}
+
+4.2 Semantic Mesh Deployment
+Following structuring, each content unit was deployed to the web as static HTML pages using Claude 3's "Project Knowledge" export feature. Individual project pages (e.g., case studies, frameworks, personal CV) were published as mini-sites using GitHub Pages. These mini-sites were then interconnected via internal anchor links, forming a Semantic Mesh architecture with three node types:
+
+Pillar Nodes: Core identity or authority-defining pages (e.g., author profile)
+
+Cluster Nodes: Topically grouped subdomains (e.g., project collections)
+
+Mini Nodes: Individual concepts or tools (e.g., prompt guide, template)
+
+All links followed a unidirectional-to-parent rule, ensuring hierarchical traceability and minimizing orphan content—factors known to aid LLM attention attribution.
+
+\subsection{Schema Integration}
+
+4.3 Schema and Structural Markup
+We embedded machine-readable metadata using Schema.org definitions across three relevant vocabularies:
+
+Article for blog-style expositions
+
+FAQPage for question-driven segments
+
+Person and Organization where biographical authority was essential
+
+This was achieved using <script type="application/ld+json"> blocks manually inserted into the HTML headers. Microdata tags were tested using Google’s Rich Results Test and passed validation in all deployed cases.
+
+\subsection{Indexing and Monitoring}
+
+4.4 Indexation and Exposure
+All site pages were submitted to Google Search Console for indexation tracking. Despite low PageRank signals (new domain, no backlinks), the Semantic Mesh ensured that internal crawling depth was <2 for all major nodes, and structured data increased crawl prioritization.
+
+During the trial (7/6–7/15), GSC data confirmed successful indexation and an average rank of 10.7. Notably, citation within LLMs (ChatGPT and Perplexity) occurred before the site appeared on the first two Google result pages—indicating that semantic quality and modularity, rather than rank alone, triggered inclusion in generative responses.
+\subsection{Summary of Toolchain}
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Step} & \textbf{Tool} & \textbf{Output} \\
+\hline
+Dictation & ChatGPT Voice & Modular paragraphs \\
+Knowledge Structuring & ChatGPT Linker & Topic clusters \\
+Export & Claude Project Knowledge & HTML pages \\
+Hosting & GitHub Pages & Semantic Mesh \\
+Schema Testing & Google Rich Results & JSON-LD validation \\
+Index Monitoring & Google Search Console & Coverage + rank data \\
+LLM Evaluation & ChatGPT/Perplexity & Citation rates \\
+\hline
+\end{tabular}
+\end{center}
