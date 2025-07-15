@@ -1,0 +1,56 @@
+\section{Methodology: Technical Implementation of GEO}
+
+To operationalize the three-layer semantic visibility model, we constructed a multi-stage GEO implementation pipeline using publicly available tools and lightweight deployment infrastructure. This section details the real-world execution process, emphasizing reproducibility, modularity, and platform neutrality.
+
+\subsection{Content Generation and Structuring}
+
+Initial content was drafted by dictating past experience and project descriptions using ChatGPT’s voice-to-text transcription. Supporting materials such as research notes and structured knowledge were integrated via ChatGPT’s linker and research tools.
+
+Each content block was revised to:
+\begin{itemize}
+  \item Maintain modular paragraphing (3--5 sentences)
+  \item Use informative, scoped H2/H3 headers
+  \item Provide standalone blocks such as lists, FAQs, and short definitions
+\end{itemize}
+This directly supports Layer 1 and Layer 3 of the semantic visibility model.
+
+\subsection{Deployment via Semantic Mesh}
+
+Using Claude 3’s “Project Knowledge” export function, structured content was published as static HTML files. These were organized on GitHub Pages under a mesh architecture:
+\begin{itemize}
+  \item \textbf{Pillar nodes}: author profile, main topic overview
+  \item \textbf{Cluster nodes}: grouped pages (e.g., SEO, LLM, case studies)
+  \item \textbf{Mini nodes}: specific modules or tools
+\end{itemize}
+Each page interlinked upward toward its Pillar node, maintaining semantic cohesion and low crawl depth.
+
+\subsection{Schema Integration}
+
+Pages used Schema.org markup in JSON-LD format. Depending on content type, we added:
+\begin{itemize}
+  \item \texttt{Article} and \texttt{FAQPage} for explanatory and Q\&A blocks
+  \item \texttt{Person} and \texttt{WebPage} for biography and overview pages
+\end{itemize}
+Markup was validated via Google’s Rich Results Test.
+
+\subsection{Indexing and Monitoring}
+
+Pages were submitted through Google Search Console. During the 7/6--7/15 observation period, indexation coverage was confirmed. Although average rank was low (position 10.7), citation occurred in generative responses before reaching top SERP.
+
+\subsection{Summary of Toolchain}
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Step} & \textbf{Tool} & \textbf{Output} \\
+\hline
+Dictation & ChatGPT Voice & Modular paragraphs \\
+Knowledge Structuring & ChatGPT Linker & Topic clusters \\
+Export & Claude Project Knowledge & HTML pages \\
+Hosting & GitHub Pages & Semantic Mesh \\
+Schema Testing & Google Rich Results & JSON-LD validation \\
+Index Monitoring & Google Search Console & Coverage + rank data \\
+LLM Evaluation & ChatGPT/Perplexity & Citation rates \\
+\hline
+\end{tabular}
+\end{center}
