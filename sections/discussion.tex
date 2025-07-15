@@ -1,0 +1,32 @@
+\section{Discussion}
+
+The experimental results across both case studies offer empirical validation of the core hypothesis of GEO: that visibility in generative engine responses is primarily governed by content structure, not SEO ranking.
+
+\subsection{From Rank to Reference}
+
+The SOYA experiment showed that a high-ranking page (1st on Google) received \textbf{0 citations} prior to GEO optimization. Conversely, after applying semantic structuring, the same content was cited in \textbf{77.1\%} of answer segments. This shift supports prior claims by Aggarwal et al. \cite{aggarwal2024geo} that citation is better predicted by structured quotability than keyword density.
+
+In the name-based test, a low-ranking site with no prior authority or backlinks achieved over \textbf{55\% citation inclusion}. The success was attributable to name disambiguation via Schema.org \texttt{Person} tags and modular semantic layout.
+
+\subsection{Layer Synergy and Failure Cases}
+
+Experimental observations highlight the synergistic nature of GEO's three layers:
+\begin{itemize}
+  \item \textbf{Layer 1} ensured correct classification and topical anchoring
+  \item \textbf{Layer 2} enabled flexible query matching
+  \item \textbf{Layer 3} made content quotable in standalone chunks
+\end{itemize}
+Weakness in any one layer led to failure modes: good modular design without anchoring caused off-topic retrieval, while strong title structure without modularity resulted in omission from final response.
+
+\subsection{Citation vs. SEO Authority}
+
+SEO methods prioritize rank signals like domain authority and link count. Our findings suggest generative engines de-emphasize these signals in favor of content design. This democratizes visibility: creators with no SEO capital can compete if they follow GEO structuring principles.
+
+\subsection{Limitations}
+
+\begin{itemize}
+  \item Generative engines evolve frequently, and these results may change
+  \item Citation may be stochastic; results may vary with prompt or time
+  \item True ingestion timing of new content by LLMs is not observable
+\end{itemize}
+These constraints are shared by prior GEO research and consistent with its formulation as a black-box optimization task \cite{aggarwal2024geo}.
