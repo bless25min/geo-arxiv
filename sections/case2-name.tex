@@ -1,0 +1,35 @@
+\section{Control Experiment: Name-Based GEO Visibility Test}
+
+To isolate the effects of GEO from traditional SEO ranking, we conducted a mini-experiment using the author’s name, ``\textbf{\CJKfamily{bsmi}廖天佑},'' as the target query. Prior to this experiment, no indexed content existed under this name in major generative engines.
+
+\subsection{Design Motivation}
+A known high-profile student with the same name dominates Google results and occupies top-ranking spots. The experiment asked whether GEO optimization alone---absent SEO ranking or backlinks---could enable content visibility in ChatGPT and Perplexity.
+
+\subsection{GEO Implementation}
+Between July 6 and July 15, 2025, the following pipeline was executed:
+\begin{enumerate}
+  \item Recorded biography and project data via ChatGPT voice dictation
+  \item Structured content using linker tools and exported as HTML (via Claude)
+  \item Hosted on GitHub Pages with Semantic Mesh interlinking
+  \item Embedded \texttt{Person}, \texttt{FAQPage}, and \texttt{Article} schemas
+  \item Submitted all pages to Google Search Console (no SEO tuning applied)
+\end{enumerate}
+
+\subsection{Quantitative Results (7/15)}
+\begin{itemize}
+  \item \textbf{GSC average rank:} 10.7
+  \item \textbf{Google rank:} Page 3
+  \item \textbf{ChatGPT:} 5 of 9 segments cited the author site
+  \item \textbf{Perplexity:} 3 of 5 segments cited the author site
+\end{itemize}
+
+ChatGPT explicitly distinguished two entities: one highly publicized student, and the other ``a digital researcher involved in SEO and generative content,” referring to the author.
+
+\subsection{Interpretation}
+\begin{itemize}
+  \item Despite low Google rank, GEO methods achieved over 55\% citation rate
+  \item Disambiguation occurred due to strong semantic anchoring (name + schema)
+  \item No backlinks or SEO methods were used---only semantic restructuring
+\end{itemize}
+
+This confirms that citation in generative search is not dependent on SEO prominence but rather on how well the content is structured for generative ingestion and reuse \cite{aggarwal2024geo}.
