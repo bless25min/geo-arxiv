@@ -48,3 +48,13 @@ These figures are referenced in Sections 6 and 7 of the paper and help validate 
 > Screenshots are included for reproducibility and verification, but are not part of the arXiv submission package.
 
 ---
+## 📜 License and Originality
+
+This repository contains original research by **Tianyou Liao**.
+
+First created and published via GitHub on July 2025. All LaTeX files, experiments, and results are authored independently.
+
+Licensed under **Creative Commons Attribution 4.0 (CC BY 4.0)**.  
+See `LICENSE` file for details.
+
+If you wish to reuse or cite this work, please attribute the original author and link to this repository.
