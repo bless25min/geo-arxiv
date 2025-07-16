@@ -52,7 +52,7 @@ These figures are referenced in Sections 6 and 7 of the paper and help validate 
 
 This repository contains original research by **Tianyou Liao**.
 
-First created and published via GitHub on July 2025. All LaTeX files, experiments, and results are authored independently.
+First created and published via GitHub on July 16 2025. All LaTeX files, experiments, and results are authored independently.
 
 Licensed under **Creative Commons Attribution 4.0 (CC BY 4.0)**.  
 See `LICENSE` file for details.
