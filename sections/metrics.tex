@@ -1,42 +1,86 @@
 \section{Evaluation Metrics}
 
-To assess the impact of GEO strategies systematically, we introduce five evaluation metrics designed to quantify visibility readiness across semantic, structural, and generative dimensions. Each metric is defined with a clear threshold and justification.
+To systematically assess the effectiveness of GEO interventions, we define five complementary evaluation metrics that measure different dimensions of content visibility within generative engines. These indicators are grounded in existing citation theories \cite{aggarwal2024geo, liu2023verifiability, menick2022quotes} and adapted for real-world observability and automation.
 
 \subsection{AIO Semantic Focus Score}
-\textbf{Definition:} Proportion of sentences that directly support the declared topic.
-\begin{equation}
-\text{AIO}_{T} = \frac{\text{Number of topic-relevant sentences}}{\text{Total number of sentences}}
-\end{equation}
-\textbf{Threshold:} $> 0.75$
+
+\textbf{Definition:} The share of a document’s sentences that exhibit high semantic alignment with a declared topic or entity of focus.
+
+Let $S$ be the total number of sentences and $S_t \subset S$ be those that contain or reinforce the primary topic entity $T$, as annotated via Named Entity Recognition (NER) or manual labeling.
+
+\[
+\text{AIO\_Semantic\_Focus}(T) = \frac{|S_t|}{|S|}
+\]
+
+\textbf{Threshold:} $\geq 0.75$
+
+\textbf{Usage:} Diagnoses clarity of anchoring (Layer 1). A low score implies excessive topic drift.
 
 \subsection{Citation Potential Score}
-\textbf{Definition:} Composite score measuring factuality, authority, practical utility, and presentation.
-\begin{equation}
-\text{CPS} = \frac{1}{4}\sum_{i=1}^{4} \text{score}_i
-\end{equation}
-\textbf{Sources:} Scores derived from G-Eval-style rubric \cite{liu2023verifiability, menick2022quotes}.
-\textbf{Threshold:} $> 0.70$
+
+\textbf{Definition:} A composite metric scoring a paragraph or document on four citation-enhancing dimensions identified in GEO-Bench: factual density, authoritativeness, utility, and presentation clarity.
+
+We adapt a simplified linear aggregation based on normalized human rater scores or GPT-assisted rubric scoring (following G-Eval templates).
+
+\[
+\text{Citation\_Potential} = \frac{1}{4} \sum_{i=1}^{4} \text{score}_i
+\]
+
+Each sub-score includes:
+\begin{itemize}
+  \item \textbf{Factuality}: Presence of numerical or time-bound facts
+  \item \textbf{Authority}: Institutional tone or cited sources
+  \item \textbf{Utility}: Actionable insights or definitions
+  \item \textbf{Clarity}: Syntactic fluency and paragraph modularity
+\end{itemize}
+
+\textbf{Threshold:} $\geq 0.70$
 
 \subsection{Structural Readiness Score}
-\textbf{Definition:} Ratio of actual to expected Schema.org types deployed correctly.
-\begin{equation}
-\text{SRS} = \frac{\text{Valid schemas used}}{\text{Expected schemas}}
-\end{equation}
-\textbf{Schemas:} \texttt{Article}, \texttt{FAQPage}, \texttt{Person}, etc.
-\textbf{Threshold:} $> 0.80$
+
+\textbf{Definition:} A schema-based binary score evaluating the extent to which a page uses structured markup conforming to Schema.org types relevant for generative understanding.
+
+\[
+\text{Structural\_Readiness} = \frac{\text{Valid schema types used}}{\text{Expected schema types}}
+\]
+
+\textbf{Schema types considered:} \texttt{Article}, \texttt{FAQPage}, \texttt{Person}, \texttt{WebPage}
+
+\textbf{Threshold:} $\geq 0.80$
 
 \subsection{Modular Extractability Score}
-\textbf{Definition:} Ratio of extractable blocks (FAQs, lists, modular paragraphs) to total content blocks.
-\begin{equation}
-\text{MES} = \frac{\text{Extractable units}}{\text{Paragraphs + Lists}}
-\end{equation}
-\textbf{Threshold:} $> 0.65$
+
+\textbf{Definition:} The proportion of a document that is easily separable into extractable, stand-alone units such as questions, steps, bullet points, or key takeaways.
+
+\[
+\text{Modular\_Extractability} = \frac{\text{\# modular units}}{\text{\# total blocks (paragraphs + lists)}}
+\]
+
+\textbf{Modular units include:}
+\begin{itemize}
+  \item Stand-alone 3--5 sentence paragraphs
+  \item Numbered or bulleted lists
+  \item FAQ blocks
+  \item Inline definitions or quote blocks
+\end{itemize}
+
+\textbf{Threshold:} $\geq 0.65$
 
 \subsection{Multi-Modal Adaptability Score}
-\textbf{Definition:} Presence of captions, tables, figure descriptions, or podcast/video-ready outlines.
-\begin{equation}
-\text{MMAS} = \frac{\text{Alternate format sections}}{\text{Total sections}}
-\end{equation}
-\textbf{Threshold:} $> 0.60$
 
-These metrics align with and expand on the visibility functions and impression metrics introduced in GEO-Bench \cite{aggarwal2024geo}. They also support reproducible benchmarking across domains and platforms.
+\textbf{Definition:} Measures whether the content contains elements that enable multimodal recomposition by LLMs—such as figure descriptions, audio summary outlines, or tabular data.
+
+\[
+\text{Multi\_Modal\_Adaptability} = \frac{\text{Alternate format sections}}{\text{Total sections}}
+\]
+
+\textbf{Detected features include:}
+\begin{itemize}
+  \item \texttt{<figure>} or \texttt{<table>} elements with captions
+  \item Podcast/video outlines (bulleted)
+  \item Data tables with headers
+\end{itemize}
+
+\textbf{Threshold:} $\geq 0.60$
+
+These metrics align with and expand on the visibility functions and impression metrics introduced in GEO-Bench \cite{aggarwal2024geo}. They support reproducible benchmarking across domains and platforms.
