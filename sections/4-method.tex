@@ -2,59 +2,56 @@
 
 To operationalize the three-layer semantic visibility model, we constructed a multi-stage GEO implementation pipeline using publicly available tools and lightweight deployment infrastructure. This section details the real-world execution process, emphasizing reproducibility, modularity, and platform neutrality.
 
-\subsection{Content Generation and Semantic Structuring}
+\subsection{Content Generation and Structuring}
 
-To produce content suitable for LLM citation, we began by recording biographical narratives and domain knowledge using ChatGPT’s voice transcription feature. These audio inputs were automatically transcribed and processed into structured paragraphs, preserving semantic completeness at the segment level. Supplementary knowledge—such as project notes and technical documentation—was organized using ChatGPT’s \textit{linker} and \textit{research} tools, which enabled the clustering of concepts under shared topical anchors.
+Initial content was drafted by dictating past experience and project descriptions using ChatGPT’s voice-to-text transcription. Supporting materials such as research notes and structured knowledge were integrated via ChatGPT’s linker and research tools.
 
-Each content block was edited for:
+Each content block was revised to:
 \begin{itemize}
-  \item \textbf{Modularity:} 3--5 sentence units with standalone coherence
-  \item \textbf{Title scope clarity:} Inclusion of descriptive section headers (H2/H3)
-  \item \textbf{Extractability:} Use of bullet lists, definition blocks, and quote formatting
+  \item Maintain modular paragraphing (3--5 sentences)
+  \item Use informative, scoped H2/H3 headers
+  \item Provide standalone blocks such as lists, FAQs, and short definitions
 \end{itemize}
 
-This process ensured coverage of the Semantic Anchoring and Pragmatic Recomposition layers of the visibility model~\cite{luttgenau2025beyondseo}.
+This directly supports Layer 1 and Layer 3 of the semantic visibility model.
 
-\subsection{Semantic Mesh Deployment}
+\subsection{Deployment via Semantic Mesh}
 
-Following structuring, each content unit was deployed to the web as static HTML pages using Claude 3's ``Project Knowledge'' export feature. Individual project pages (e.g., case studies, frameworks, personal CV) were published as mini-sites using GitHub Pages. These mini-sites were then interconnected via internal anchor links, forming a \textbf{Semantic Mesh architecture} with three node types:
+Using Claude 3’s “Project Knowledge” export function, structured content was published as static HTML files. These were organized on GitHub Pages under a mesh architecture:
 \begin{itemize}
-  \item \textbf{Pillar Nodes:} Core identity or authority-defining pages
-  \item \textbf{Cluster Nodes:} Topically grouped subdomains
-  \item \textbf{Mini Nodes:} Individual concepts or tools
+  \item \textbf{Pillar nodes:} author profile, main topic overview
+  \item \textbf{Cluster nodes:} grouped pages (e.g., SEO, LLM, case studies)
+  \item \textbf{Mini nodes:} specific modules or tools
 \end{itemize}
 
-All links followed a unidirectional-to-parent rule, ensuring hierarchical traceability and minimizing orphan content—factors known to aid LLM attention attribution~\cite{aggarwal2024geo}.
+Each page interlinked upward toward its Pillar node, maintaining semantic cohesion and low crawl depth.
 
-\subsection{Schema and Structural Markup}
+\subsection{Schema Integration}
 
-We embedded machine-readable metadata using Schema.org definitions across three relevant vocabularies:
+Pages used Schema.org markup in JSON-LD format. Depending on content type, we added:
 \begin{itemize}
-  \item \texttt{Article} for blog-style expositions
-  \item \texttt{FAQPage} for question-driven segments
-  \item \texttt{Person} and \texttt{Organization} where biographical authority was essential
+  \item \texttt{Article} and \texttt{FAQPage} for explanatory and Q\&A blocks
+  \item \texttt{Person} and \texttt{WebPage} for biography and overview pages
 \end{itemize}
 
-This was achieved using \texttt{<script type=\"application/ld+json\">} blocks manually inserted into the HTML headers. Microdata tags were tested using Google’s Rich Results Test and passed validation in all deployed cases.
+Markup was validated via Google’s Rich Results Test.
 
-\subsection{Indexation and Exposure}
+\subsection{Indexing and Monitoring}
 
-All site pages were submitted to Google Search Console for indexation tracking. Despite low PageRank signals (new domain, no backlinks), the Semantic Mesh ensured that internal crawling depth was <2 for all major nodes, and structured data increased crawl prioritization.
+Pages were submitted through Google Search Console. During the 7/6--7/15 observation period, indexation coverage was confirmed. Although average rank was low (position 10.7), citation occurred in generative responses before reaching top SERP.
 
-During the trial (July 6–15, 2025), GSC data confirmed successful indexation and an average rank of 10.7. Notably, citation within LLMs (ChatGPT and Perplexity) occurred before the site appeared on the first two Google result pages—indicating that \textbf{semantic quality and modularity}, rather than rank alone, triggered inclusion in generative responses~\cite{aggarwal2024geo}.
-
-\subsection{Toolchain Summary}
+\subsection{Summary of Toolchain}
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{Step} & \textbf{Tool} & \textbf{Output} \\\hline
-Content Transcription & ChatGPT Voice & Modular paragraphs \\\hline
-Knowledge Structuring & ChatGPT Linker \& Research & Topic clusters \\\hline
-HTML Export & Claude 3 Project Knowledge & Clean HTML pages \\\hline
+Dictation & ChatGPT Voice & Modular paragraphs \\\hline
+Knowledge Structuring & ChatGPT Linker & Topic clusters \\\hline
+Export & Claude Project Knowledge & HTML pages \\\hline
 Hosting & GitHub Pages & Semantic Mesh \\\hline
-Schema Validation & Google Rich Results Test & JSON-LD schema \\\hline
-Index Monitoring & Google Search Console & Ranking + coverage \\\hline
-Evaluation & ChatGPT / Perplexity & Citation frequency \\\hline
+Schema Testing & Rich Results Test & JSON-LD validation \\\hline
+Index Monitoring & Google Search Console & Coverage + rank data \\\hline
+Evaluation & ChatGPT/Perplexity (incognito) & Citation rates \\\hline
 \end{tabular}
 \end{center}
