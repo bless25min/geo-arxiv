@@ -1,46 +1,41 @@
 \section{Theoretical Foundation: The Three-Layer Semantic Visibility Model}
 
-3. Theoretical Foundation: The Three-Layer Semantic Visibility Model
 The Generative Engine Optimization (GEO) framework is underpinned by a structured understanding of how large language models (LLMs) discover, interpret, and cite web content. Building on citation behavior observed in generative engines such as ChatGPT and Perplexity, we propose a three-layer semantic visibility model that captures the pathways through which content becomes quotable within generative responses. Each layer corresponds to a distinct mechanism in the LLM's information ingestion and synthesis pipeline, and maps directly to modifiable aspects of web content architecture.
+
 \subsection{Layer 1: Semantic Anchoring}
 
-3.1 Layer 1: Semantic Anchoring
-Semantic Anchoring refers to the ability of content to be clearly classified and contextually grounded by the LLM during pre-retrieval and indexing phases. Empirical evidence from Aggarwal et al. (2024) suggests that generative engines favor sources with well-defined topical scope and explicit structural cues. To this end, content optimized for semantic anchoring must exhibit:
+Semantic Anchoring refers to the ability of content to be clearly classified and contextually grounded by the LLM during pre-retrieval and indexing phases. Empirical evidence from Aggarwal et al. \cite{aggarwal2024geo} suggests that generative engines favor sources with well-defined topical scope and explicit structural cues. To this end, content optimized for semantic anchoring must exhibit:
+\begin{itemize}
+  \item Descriptive and unambiguous titles
+  \item Introductory summary paragraphs, typically within the first 150--300 characters
+  \item Hierarchical heading structures (H1--H3)
+\end{itemize}
 
-Descriptive and unambiguous titles, which explicitly state the topic or claim being made.
+Semantic anchoring aligns with Liu et al. \cite{liu2023verifiability}, who found that predictable structure and salient topic signals improve citation grounding and retrieval performance in LLMs.
 
-Introductory summary paragraphs, typically within the first 150–300 characters, that encapsulate the scope, key findings, and relevance of the page. These are best marked semantically using HTML tags such as <section class="summary"> or <p class="intro">.
-
-Hierarchical heading structures (H1–H3), ensuring each section is semantically independent yet logically connected.
-
-Semantic anchoring aligns with Liu et al. (2023)’s findings that LLMs perform better citation grounding when source content follows predictable structural patterns and contains salient topic signals.
 \subsection{Layer 2: Context Triggering}
 
-3.2 Layer 2: Context Triggering
-Context Triggering addresses the retrievability of content across a broad spectrum of semantically equivalent or related queries. Unlike search engines that rely on keyword frequency and anchor text, LLMs rely on internal embeddings and semantic matchings. Thus, a page must include:
+Context Triggering addresses the retrievability of content across a broad spectrum of semantically equivalent or related queries. Unlike traditional search engines that rely on keyword frequency and anchor text, LLMs rely on internal embeddings and semantic matchings. Thus, a page must include:
+\begin{itemize}
+  \item Synonymic and paraphrased phrasing of key ideas
+  \item Domain-specific terminology and taxonomical language
+  \item Multi-level complexity layering (for both lay and expert audiences)
+\end{itemize}
 
-Synonymic and paraphrased phrasing of key ideas, to capture variant query intents (e.g., “GEO visibility” alongside “AI citation performance”).
+This design enables the content to surface regardless of user literacy level or phrasing strategy, a concept supported by Aggarwal et al. \cite{aggarwal2024geo} and operationalized in their GEO-Bench multi-domain query coverage model.
 
-Domain-specific terminology, including technical jargon and taxonomical language relevant to the field.
-
-Multi-level complexity layering, where beginner-friendly explanations coexist with advanced analytical interpretations.
-
-This design enables the content to surface regardless of user literacy level or phrasing strategy, a concept supported by Aggarwal et al. (2024) and operationalized in their GEO-Bench multi-domain query coverage model.
 \subsection{Layer 3: Pragmatic Recomposition}
 
-3.3 Layer 3: Pragmatic Recomposition
 The final layer, Pragmatic Recomposition, ensures that content is modular and syntactically robust enough to be extracted, rephrased, or partially quoted by an LLM while preserving its semantic integrity. This layer is critical for maximizing inclusion in generative responses. Key features include:
+\begin{itemize}
+  \item Modular paragraphing (3--5 sentence blocks, each centered on one idea)
+  \item Q\&A structures and FAQ blocks, ideally marked with \texttt{FAQPage} schema
+  \item List and step-wise formatting for procedural content
+  \item Standalone factual sentences, especially for statistics or definitions
+\end{itemize}
 
-Modular paragraphing, where each paragraph centers on one claim or concept and can be understood independently of surrounding text.
+This approach is aligned with L\"uttgenau et al. \cite{luttgenau2025beyondseo}, whose fine-tuned summarization models were trained on (w, w') pairs---where w' embodied modular, citation-ready outputs.
 
-Q&A structures and FAQ blocks, which match the natural output format of many LLMs and are highly reusable in response generation. These should be marked with FAQPage schemas when possible.
+\subsection{Layer Synergy and Diagnostic Value}
 
-List and step-wise formatting, useful for procedural and instructional content.
-
-Standalone factual sentences, especially numerical results or definitions, which can be cited verbatim (e.g., “GEO citation uplift rate was 77.1% in post-optimization testing.”).
-
-This approach is aligned with Lüttgenau et al. (2025)’s use of fine-tuned summarization models that were trained on (w, w′) pairs, where w′ embodied optimized variants of modular content annotated for fluency, authority, and citation suitability.
-\subsection{Layer Synergy and Failure Modes}
-
-3.4 Operational Interdependence
-Although the three layers are analytically distinct, they are operationally interdependent. Content that is semantically anchored but not pragmatically modular may be retrieved but not cited. Conversely, highly modular content without semantic clarity may be cited out of context or not cited at all. We thus propose that effective GEO optimization requires simultaneous attention to all three layers, and should be evaluated using a multi-factor diagnostic framework as detailed in Section 5.
+Although the three layers are analytically distinct, they are operationally interdependent. Content that is semantically anchored but not pragmatically modular may be retrieved but not cited. Conversely, highly modular content without semantic clarity may be cited out of context or not cited at all. We thus propose that effective GEO optimization requires simultaneous attention to all three layers, and should be evaluated using a multi-factor diagnostic framework as detailed in Section~\ref{sec:metrics}.
