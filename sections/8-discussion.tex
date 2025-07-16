@@ -1,0 +1,43 @@
+\section{Discussion}
+
+The preceding experiments reveal a consistent and reproducible pattern: content optimized using the GEO framework demonstrates substantial improvements in citation frequency within generative engine outputs---regardless of its SEO status, backlink presence, or domain authority. This section synthesizes the theoretical implications, operational considerations, and real-world constraints identified across both case studies.
+
+\subsection{From Ranking to Referencing}
+
+The SOYA course trial demonstrated that even when a page is already ranked highly in traditional search (e.g., first result on Google), it may remain completely invisible to generative engines like ChatGPT or Perplexity if it lacks semantic modularity and extractability. After applying structured Answer Layer rewriting, schema markup, and paragraph modularization, the same content was cited in over 77\% of generated segments---a finding that mirrors the citation uplift seen in GEO-Bench \cite{aggarwal2024geo}.
+
+In contrast, the “廖天佑” name-based trial involved a page that ranked poorly in SEO (GSC average position 10.7) and shared its target query with a dominant, unrelated entity. Even so, the GEO-structured content achieved a 60\%+ citation rate in both generative engines---suggesting that well-engineered semantic structure can overcome even \textbf{disambiguation bias}.
+
+Together, these findings support the core GEO hypothesis: \textbf{LLM visibility is governed more by extractability, coherence, and topical clarity than by link-based authority signals}.
+
+\subsection{Layer Effectiveness and Interaction}
+
+The experiments further validate the functional independence and interaction of the three GEO semantic layers:
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Layer} & \textbf{Contribution Evidence} & \textbf{Observed Effects} \\\hline
+Semantic Anchoring & Clear titles and summaries & Higher classification accuracy \\\hline
+Context Triggering & Synonymic phrasing, taxonomy & Broader query matching \\\hline
+Pragmatic Recomposition & FAQs, modular paragraphs & Mid-body citation precision \\\hline
+\end{tabular}
+\end{center}
+
+Notably, ChatGPT cited not only the introductory paragraphs, but also embedded FAQ answers and sentence-level definitions---reinforcing the role of Layer 3 in enabling recomposition. This behavior is consistent with Lüttgenau et al.’s BART fine-tuning results \cite{luttgenau2025beyondseo}.
+
+\subsection{Visibility ≠ Authority}
+
+One counterintuitive outcome is the citation of low-authority domains (e.g., GitHub Pages with no backlinks) over highly ranked official sites. This challenges a long-standing SEO assumption: that PageRank correlates with trust or visibility.
+
+In GEO, trust emerges from \textbf{information packaging}, not \textbf{linkage popularity}. This suggests that smaller or emerging creators can compete on equal footing if they invest in semantic clarity and modular formatting.
+
+\subsection{Constraints and Limitations}
+
+\begin{itemize}
+  \item \textbf{LLM output variability:} Generative results may vary slightly depending on prompt, model version, or context.
+  \item \textbf{Crawling uncertainty:} It remains impossible to directly verify when an LLM ingested a newly published site.
+  \item \textbf{Black-box citation logic:} LLMs may cite based on latent embeddings or internal heuristics not fully transparent to users.
+\end{itemize}
+
+These limitations are consistent with the “partially observable” nature of GEO described by Aggarwal et al. \cite{aggarwal2024geo}, and reinforce the need for multi-session testing and layered metric evaluation.
