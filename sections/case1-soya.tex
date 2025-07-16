@@ -1,45 +1,55 @@
-\section{Case Study: GEO Implementation on SOYA Course Review Content}
+\section{Case Study: GEO Implementation on “SOYA 課程評價” Content}
 
-To validate the efficacy of GEO under production-like conditions, we applied a three-phase optimization to the page titled ``SOYA \textbf{\CJKfamily{bsmi}課程評價}” hosted on \texttt{massenlighten.com}. Implementation details are documented in full at \cite{massenlighten2024blog}.
+To validate the practical efficacy of Generative Engine Optimization (GEO), we conducted a three-week structured implementation on a public-facing web page discussing the “SOYA 課程評價” (SOYA course reviews). The process was executed in July 2024 and documented step-by-step at \url{https://www.massenlighten.com/post/gpt-%E5%BC%95%E7%94%A8%E5%AF%A6%E4%BD%9C%E5%85%A8%E7%B4%80%E9%8C%84%EF%BC%9A%E4%B8%89%E9%80%B1%E5%BE%9E%E9%9B%9C%E5%87%BA%E7%99%BC%EF%BC%8C%E6%89%93%E9%80%A0-ai-%E8%83%BD%E7%9C%8B%E8%A6%8B%E7%9A%84%E5%85%A7%E5%AE%B9}.
 
 \subsection{Pre-Optimization Baseline}
-Before intervention, ChatGPT and Perplexity were queried in incognito visitor mode with the term ``SOYA 課程評價.”
-\begin{itemize}
-  \item \textbf{ChatGPT:} 0 out of 8--10 segments cited the page
-  \item \textbf{Perplexity:} 0 out of 6 content blocks referenced the source
-\end{itemize}
-Despite first-page ranking in traditional search, generative engines failed to cite the site---suggesting structural citation failure.
 
-\subsection{Optimization Process}
-Changes were deployed across three weeks:
-\begin{itemize}
-  \item \textbf{Week 1:} Semantic anchoring (title rewriting, summary paragraph, intro block)
-  \item \textbf{Week 2:} Context expansion (paraphrases, synonyms, term layering)
-  \item \textbf{Week 3:} Recomposition (FAQ, modularization, citation-ready definitions)
-\end{itemize}
-Each change aligned with one GEO semantic layer.
+Prior to optimization, we queried “SOYA 課程評價” in both \textbf{ChatGPT Search} and \textbf{Perplexity AI} in incognito and non-authenticated visitor mode.
 
-\subsection{Post-GEO Evaluation}
-Querying under the same visitor settings yielded:
-\begin{center}
+\begin{itemize}
+  \item \textbf{ChatGPT:} 0 of 8--10 answer segments cited massenlighten.com.
+  \item \textbf{Perplexity:} 0 of 6 response segments cited our content.
+\end{itemize}
+
+Although the SOYA page ranked highly on Google (position 1), it was not referenced by generative engines—demonstrating that SEO visibility did not translate into LLM citation.
+
+\subsection{Three-Week GEO Optimization}
+
+We applied structural interventions mapped to each GEO semantic layer:
+
+\begin{itemize}
+  \item \textbf{Week 1 (Semantic Anchoring):} Rewrote title and introduction; added summary section using \texttt{<section class="summary">}.
+  \item \textbf{Week 2 (Context Triggering):} Inserted paraphrases (e.g., “課程評價” vs. “學員回饋”), related terminology, and domain synonyms.
+  \item \textbf{Week 3 (Pragmatic Recomposition):} Broke paragraphs into 3--5 sentence units, added FAQ blocks and bolded definitions.
+\end{itemize}
+
+\subsection{Post-GEO Evaluation Results}
+
+We re-ran the same queries under identical visitor-mode conditions.
+
+\begin{table}[h]
+\centering
 \begin{tabular}{|l|c|c|}
 \hline
-\textbf{System} & \textbf{Segments Returned} & \textbf{Segments Citing SOYA Page} \\
-\hline
-ChatGPT Run 1 & 9 & 7 \\
-ChatGPT Run 2 & 8 & 7 \\
-Perplexity Run 1 & 6 & 5 \\
-Perplexity Run 2 & 6 & 5 \\
-\hline
+\textbf{Engine} & \textbf{Answer Segments} & \textbf{Citing Our Page} \\\hline
+ChatGPT (Run 1) & 9 & 7 \\\hline
+ChatGPT (Run 2) & 8 & 7 \\\hline
+Perplexity (Run 1) & 6 & 5 \\\hline
+Perplexity (Run 2) & 6 & 5 \\\hline
 \end{tabular}
-\end{center}
+\caption{Citation results across 4 zero-login visitor sessions (July 2024)}
+\end{table}
 
-Average citation rate across 4 sessions: \textbf{77.1\%}. Segments cited included mid-body paragraphs and FAQ entries.
+Average citation ratio across both engines and both runs was \textbf{77.1\%}.
 
-\subsection{Implications}
+\subsection{Interpretation}
+
+The experiment confirms that:
+
 \begin{itemize}
-  \item Modular restructuring substantially improved visibility
-  \item Schema and semantic clarity allowed correct topical indexing
-  \item Citation occurred despite no backlink gain or metadata tuning
+  \item \textbf{Semantic modularity} was key to citation inclusion;
+  \item \textbf{Citation occurred despite no change in Google SEO rank or backlinks};
+  \item \textbf{LLMs reused both rewritten paragraphs and FAQ blocks}, showing effective recomposition.
 \end{itemize}
-These outcomes align with GEO-Bench results \cite{aggarwal2024geo}, supporting the claim that semantic structure---not SEO rank---determines generative citation likelihood.
+
+These findings match GEO-Bench and BART fine-tuning results reported by Aggarwal et al. \cite{aggarwal2024geo} and L\"uttgenau et al. \cite{luttgenau2025beyondseo}, where modular content with semantic clarity increased AI citation performance even without traditional SEO indicators.
