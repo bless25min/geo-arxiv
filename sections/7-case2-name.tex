@@ -1,0 +1,51 @@
+\section{Control Experiment: Name-Based GEO Visibility Test}
+
+To isolate the effects of Generative Engine Optimization (GEO) from traditional Search Engine Optimization (SEO), we conducted a single-subject case study using the author’s name, “廖天佑,” as the query term. Unlike product or course-related keywords, personal names are less susceptible to keyword targeting or backlink manipulation, making them a suitable context for testing semantic-layer interventions under low-SEO influence.
+
+\subsection{Motivation and Hypothesis}
+
+Prior to this experiment, searching “廖天佑” on ChatGPT and Perplexity produced zero references to the author. Instead, both engines returned results about a different individual---a well-known student with extensive news coverage. This high-ambiguity, low-authority setting provided an ideal stress test for GEO strategies.
+
+We hypothesized that even in the presence of a dominant competing entity and low page rank, semantic anchoring and modular structuring alone could elevate visibility in generative responses.
+
+\subsection{Implementation Pipeline (7/6--7/15)}
+
+The author executed a full-stack GEO deployment using the following sequence:
+
+\begin{enumerate}
+  \item Used ChatGPT voice transcription to capture biography and work history.
+  \item Structured personal notes and knowledge via ChatGPT linker and research tools.
+  \item Exported content as static HTML using Claude 3’s Project Knowledge tool.
+  \item Published content on GitHub Pages with semantic interlinking (Pillar/Cluster/Mini nodes).
+  \item Embedded \texttt{Person}, \texttt{FAQPage}, and \texttt{Article} schema using JSON-LD.
+  \item Submitted site to Google Search Console on July 6; monitored indexation and ranking.
+\end{enumerate}
+
+No SEO enhancements (e.g., backlinks, keyword stuffing, metadata) were used. This isolated the effect of semantic and structural design.
+
+\subsection{Evaluation Results (7/15)}
+
+\begin{itemize}
+  \item \textbf{Google Search Console}: Indexed with average position = 10.7.
+  \item \textbf{Google organic search:} Author site appeared on page 3 (approx. rank 25--30).
+  \item \textbf{ChatGPT:} Returned 9 content segments, 5 of which cited the author’s pages.
+  \item \textbf{Perplexity:} Returned 5 content blocks, 3 of which cited the author.
+\end{itemize}
+
+Notably, ChatGPT’s response explicitly included:
+
+\textit{“你查詢的 ‘廖天佑’ 在網路上主要有以下兩位代表人物，”}
+
+---referring to both the widely known student and the author, indicating successful semantic disambiguation via Schema and structured content.
+
+\subsection{Interpretation}
+
+This follow-up experiment confirms that:
+
+\begin{itemize}
+  \item GEO-structured content achieved over \textbf{55\% citation} without SEO ranking.
+  \item Semantic anchoring using \texttt{Person} schema enabled LLM disambiguation.
+  \item Modular paragraphing and clear topical labels enabled partial citation even in the presence of a dominant name collision.
+\end{itemize}
+
+The results support findings from GEO-Bench \cite{aggarwal2024geo}, indicating that citation in generative systems is governed primarily by semantic extractability and structural clarity rather than by popularity, backlink profile, or keyword dominance.
