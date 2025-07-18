@@ -47,6 +47,30 @@ These figures are referenced in Sections 6 and 7 of the paper and help validate 
 
 > Screenshots are included for reproducibility and verification, but are not part of the arXiv submission package.
 
+## 🔁 Postscript: Reverse Experiment – SEO Without GEO
+
+To further validate the necessity of semantic structuring in GEO, we conducted an additional reverse experiment using a low-competition English name: **Tsai Hao Jui**.
+
+We authored a web article on AI citation optimization using this name, deliberately **omitting** the GEO structuring framework (i.e., no modular paragraphs, no Schema.org, no semantic mesh). Due to the rarity of this name, the page quickly ranked first in SEO for "Tsai Hao Jui".
+
+However, the AI search visibility results tell a different story:
+
+- 🔍 **Google**: ranked #1 on name search ✅
+- 🤖 **ChatGPT**: returned no information related to the authored article ❌
+- 📘 **Perplexity**: cited only the LinkedIn profile, not the article ❌
+
+These results underscore the core distinction:  
+**SEO alone may secure ranking, but GEO is essential for citation.**
+
+### 📎 Screenshots:
+
+- `figures/case3-tsaihaojui-chatgpt.png`
+- `figures/case3-tsaihaojui-google.png`
+- `figures/case3-tsaihaojui-perplexity.png`
+
+This confirms that content not structured semantically, even when ranked highly, is unlikely to be cited or extracted by generative engines.
+
+
 ---
 ## 📜 License and Originality
 
