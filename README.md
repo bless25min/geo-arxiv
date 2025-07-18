@@ -83,4 +83,4 @@ See `LICENSE` file for details.
 
 If you wish to reuse or cite this work, please attribute the original author and link to this repository.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15961021.svg)](https://doi.org/10.5281/zenodo.15961021)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16080281.svg)](https://doi.org/10.5281/zenodo.16080281)
