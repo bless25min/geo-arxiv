@@ -29,7 +29,10 @@ geo-arxiv/
 │   ├── case2-name-chatgpt-result.png
 │   ├── case2-name-perplexity-result.png
 │   ├── case2-name-google-serp.png
-│   └── case2-name-gsc-index-ranking.png
+│   ├── case2-name-gsc-index-ranking.png
+│   ├── case3-tsaihaojui-chatgpt.png
+│   ├── case3-tsaihaojui-google.png
+│   └── case3-tsaihaojui-perplexity.png
 
 ```
 
