@@ -55,3 +55,40 @@ Index Monitoring & Google Search Console & Coverage + rank data \\\hline
 Evaluation & ChatGPT/Perplexity (incognito) & Citation rates \\\hline
 \end{tabular}
 \end{center}
+
+\subsection{Cross-Layer Experimental Framework}
+
+To validate the independent and combined effects of all three GEO semantic layers, we constructed a controlled simulation pipeline involving semantically rich queries, annotated paragraph corpora, and neural semantic retrieval.
+
+\subsubsection{Query Set Design}
+We selected 10 representative knowledge domains—such as artificial intelligence, health policy, macroeconomics, and education—and for each, authored five semantically equivalent query variants:
+\begin{itemize}
+  \item \textbf{Original (Baseline)}: Direct phrasing aligned with canonical domain terminology.
+  \item \textbf{Synonym}: Reworded version using casual or less common substitutes for key terms.
+  \item \textbf{Classification}: Query framed using broader taxonomic categories.
+  \item \textbf{Rare-term}: Query using domain-specific jargon or rarely used synonyms.
+  \item \textbf{FAQ-style}: Natural question phrasing matching conversational use.
+\end{itemize}
+All queries targeted the same underlying information need to isolate linguistic variation effects (Layer 2).
+
+\subsubsection{Corpus Construction}
+Each domain was paired with a manually curated corpus of 400–600 short paragraphs (total $>$5000), built to reflect varying combinations of Layer 1, 2, and 3 properties. Paragraphs were annotated based on:
+\begin{itemize}
+  \item \textbf{Anchoring (L1)}: Presence of clear titles, definitions, and summary structures.
+  \item \textbf{Contextual Expansion (L2)}: Inclusion of synonyms, taxonomy terms, or paraphrases.
+  \item \textbf{Modularity (L3)}: FAQ blocks, lists, numbered steps, and concise statements.
+\end{itemize}
+Paragraphs were either synthesized using research prompts and large model outputs or extracted from cleaned Wikipedia/educational sources with human editing.
+
+\subsubsection{Retrieval Pipeline}
+We embedded all queries and corpus paragraphs using Sentence-BERT (all-MiniLM-L6-v2). For each query, the model returned the Top-5 most semantically similar paragraphs (based on cosine similarity). These were treated as citation candidates, simulating LLM-style retrieval grounding.
+
+\subsubsection{Annotation and Scoring}
+Retrieved citations were then analyzed for:
+\begin{itemize}
+  \item Whether the paragraph had Layer 2 markings (as pre-tagged in corpus).
+  \item How many citations overlapped between each query variant and the original (Top-$k$ overlap).
+  \item The consistency of result rankings via Kendall’s $\tau$.
+  \item Semantic embedding distance from query variants to original.
+\end{itemize}
+No LLM was queried directly; this setup isolates layer-level effects within a controlled semantic similarity system, without black-box model interference.
