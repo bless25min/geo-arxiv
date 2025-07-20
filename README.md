@@ -50,6 +50,35 @@ These figures are referenced in Sections 6 and 7 of the paper and help validate 
 
 > Screenshots are included for reproducibility and verification, but are not part of the arXiv submission package.
 
+## 🧪 July 2025 Update: Full Validation of GEO Three-Layer Model
+
+We have now completed comprehensive validation for all three semantic layers of the GEO framework:
+
+- ✅ **Layer 1: Semantic Anchoring**  
+  Confirmed across all experiments. Clear topic titles, introductory summaries, and consistent page structure significantly improve citation inclusion.
+
+- ✅ **Layer 3: Pragmatic Recomposition**  
+  Most reliably triggered in natural language Q&A. Modular paragraphs, list formatting, and FAQ blocks consistently appeared in LLM-generated citations (especially in ChatGPT and Perplexity runs).
+
+- ✅ **Layer 2: Context Triggering**  
+  Newly validated via a cross-domain, paraphrase-rich simulation (see Section 6.5). When users queried with synonyms, taxonomic categories, or domain-specific rare terms, semantically expanded content continued to appear among top citations.  
+  Key metrics:
+  - Average 2.6 / 5 retrieved paragraphs matched Layer-2-enhanced content  
+  - Top-5 citation overlap across query variants exceeded 60%  
+  - Kendall’s Tau for result rankings ranged from 0.6 to 0.8, indicating robust citation stability  
+  - Embedding-space distance had minimal effect on citation recall
+
+These findings confirm that **semantic expansion and diversity (Layer 2)** play an independent role in citation selection—beyond mere keyword matching or format structure.
+
+🧠 The full methods and metrics are documented in:
+- `sections/4-method.tex`  
+- `sections/5-metrics.tex`  
+- `sections/6.5-layer2-validation.tex`  
+- Visualizations: `figures/layer2-topk-overlap.png`, `layer2-kendall-tau.png`, `layer2-hit-rate.png`
+
+> These results strengthen the theoretical grounding of GEO and offer practical guidance for multi-layer optimization under generative search engines.
+
+
 ## 🔁 Postscript: Reverse Experiment – SEO Without GEO
 
 To further validate the necessity of semantic structuring in GEO, we conducted an additional reverse experiment using a low-competition English name: **Tsai Hao Jui**.
