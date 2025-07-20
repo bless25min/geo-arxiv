@@ -84,3 +84,20 @@ Each sub-score includes:
 \textbf{Threshold:} $\geq 0.60$
 
 These metrics align with and expand on the visibility functions and impression metrics introduced in GEO-Bench \cite{aggarwal2024geo}. They support reproducible benchmarking across domains and platforms.
+
+\subsection{Layer-Based Evaluation Protocols}
+
+To validate the operational effectiveness of each semantic layer within the GEO framework, we adopted a set of comparative and correlation-based metrics:
+
+\begin{itemize}
+  \item \textbf{Top-$k$ Overlap}: For each query variant, we computed the proportion of citation candidates shared with the original query’s Top-5 results. High overlap indicates stability in citation targets despite surface linguistic variation—especially relevant for Layer 2 testing.
+  
+  \item \textbf{Kendall’s Tau ($\tau$)}: To assess ranking consistency, we calculated the rank-order correlation of citations retrieved across different query formulations. Values close to $1$ reflect strong alignment in perceived relevance despite alternate phrasing.
+  
+  \item \textbf{Layer Hit Rate}: We annotated the retrieved citations to determine whether the triggered content stemmed from additions or rewrites introduced specifically for Layer 2 context triggering. A higher proportion of such hits suggests active contribution from semantic breadth.
+  
+  \item \textbf{Semantic Embedding Distance}: Using Sentence-BERT cosine distance, we measured linguistic drift between original and variant queries. This provided an orthogonal indicator of how different phrasings still led to shared citations, supporting the robustness of contextual retrieval.
+\end{itemize}
+
+These metrics collectively enabled both quantitative comparison across layers and longitudinal tracking of citation resilience under paraphrase, classification shifts, and stylistic variation.
+
