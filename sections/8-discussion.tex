@@ -42,3 +42,18 @@ In GEO, trust emerges from \textbf{information packaging}, not \textbf{linkage p
 \end{itemize}
 
 These limitations are consistent with the “partially observable” nature of GEO described by Aggarwal et al. \cite{aggarwal2024geo}, and reinforce the need for multi-session testing and layered metric evaluation.
+
+\subsection{Validation of GEO's Three-Layer Model}
+
+Across all case studies and experiments conducted, our results provide strong empirical support for the functional effectiveness of GEO’s proposed three-layer semantic visibility framework. Specifically, we observe:
+
+\begin{itemize}
+  \item \textbf{Layer 1: Semantic Anchoring} was consistently validated across domains. Clear topical headings, descriptive summaries, and introductory framing led to robust inclusion in generative outputs, even when other structural formatting was absent (Sections 6.1, 7.4).
+  
+  \item \textbf{Layer 3: Pragmatic Recomposition} proved to be the most reliable citation trigger, particularly in FAQ-style queries. Modular paragraph design, list formatting, and structured Q\&A blocks significantly enhanced citation likelihood (Sections 6.1–6.3).
+  
+  \item \textbf{Layer 2: Context Triggering}, initially less observable in single-domain settings, was subsequently validated in Section 6.5 via a dedicated cross-domain experiment. We demonstrated that paraphrastic phrasing, synonymous terminology, and taxonomic generalizations substantially improved recall across semantically varied queries.
+\end{itemize}
+
+Together, these findings confirm that the three layers, while distinct in mechanism, operate synergistically to influence LLM citation behavior. Effective content design for generative engine visibility therefore requires simultaneous attention to anchoring clarity, semantic breadth, and modular composition.
+
