@@ -1,4 +1,4 @@
-# GEO: Generative Engine Optimization (arXiv Draft)
+# GEO Fundamentals: Optimization Strategies for Web Content in the Age of AI Search
 
 This repository contains the LaTeX source for the arXiv paper:
 
