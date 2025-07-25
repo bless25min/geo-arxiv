@@ -115,5 +115,6 @@ See `LICENSE` file for details.
 
 If you wish to reuse or cite this work, please attribute the original author and link to this repository.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16307848.svg)](https://doi.org/10.5281/zenodo.16307848)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16422336.svg)](https://doi.org/10.5281/zenodo.16422336)
+
 
